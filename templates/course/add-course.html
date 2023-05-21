@@ -1,0 +1,31 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block title%}
+Courses
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center ">
+    <div class="m-5 w-50">
+        <form class="row g-3" method="post">
+            {% csrf_token %}
+            <div class="col-md-8">
+                <label for="inputEmail4" class="form-label">Course Name</label>
+                <input type="text" name="name" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-8">
+                <label for="inputPassword4" class="form-label">Course Duration</label>
+                <input type="number" name="duration" class="form-control" id="inputPassword4" placeholder="in days">
+            </div>
+            <div class="mb-3 d-flex justify-content-center ">
+                <p class="text-danger">{{ err }}</p>
+            
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Add Course</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

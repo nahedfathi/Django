@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block title%}
+Students
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center ">
+    <div class="m-5 w-50">
+        <form class="row g-3" method="post">
+            {% csrf_token %}
+            <div class="col-md-8">
+                <label class="form-label"> Student Name</label>
+                {{ form.name }}
+            </div>
+            <div class="col-8">
+                <label class="form-label">Course Name </label>
+                {{ form.course }}
+
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Add Course</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

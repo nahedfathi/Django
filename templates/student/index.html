@@ -1,0 +1,33 @@
+{% extends "base.html"%}
+{% load static %}
+{% block title%}
+Students
+{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="w-75 m-5 pt-5">
+        <table class="table  table-light  table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <th scope="row">{{student.id}}</th>
+                    <td>{{student.name}}</td>
+                    <td class="d-flex justify-content-evenly ">   
+                            <a class="btn btn-outline-primary" href="{% url 'student.update' student.id %}">Edit</a>
+                            <a class="btn btn-outline-danger" href="{% url 'student.delete' student.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

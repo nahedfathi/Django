@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block title%}
+Courses
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="w-75 m-5 pt-5">
+        <table class="table  table-light  table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for course in courses %}
+                <tr>
+                    <th scope="row">{{course.id}}</th>
+                    <td>{{course.name}}</td>
+                    <td>{{course.duration}}</td>
+
+                    <td class="d-flex justify-content-evenly ">
+
+                        <a class="btn btn-outline-primary" href="{% url 'course.update' course.id %}">Edit</a>
+                        <a class="btn btn-outline-danger" href="{% url 'course.delete' course.id %}">Delete</a>
+
+
+                    </td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
